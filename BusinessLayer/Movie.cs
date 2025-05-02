@@ -6,7 +6,7 @@ namespace BusinessLayer
     public abstract class Movie
     {
         [Key]
-        public int MovieID { get; set; }
+        public string MovieAdress { get; set; }
 
         [Required]
         public string Title { get; set; }

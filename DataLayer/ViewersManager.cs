@@ -6,26 +6,26 @@ using System.Threading.Tasks;
 using BusinessLayer;
 
 namespace DataLayer
-{
-    public class MoviesManager : IDB<Movie, string>
+/*{
+    public class ViewersManager : IDB<Viewer, int>
     {
         private readonly CatalogforMoviesDBContext _dbContext;
 
-        public MoviesManager(CatalogforMoviesDBContext dbContext)
+        public ViewersManager(CatalogforMoviesDBContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public void Create(Movie item)
+        public void Create(Viewer item)
         {
             try
             {
-                _dbContext.Movies.Add(item);
+                _dbContext.Viewers.Add(item);
                 _dbContext.SaveChanges();
             }
             catch (Exception ex)
             {
-                throw new Exception("Failed to create movie.", ex);
+                throw new Exception("Failed to create viewer.", ex);
             }
         }
 
@@ -33,7 +33,7 @@ namespace DataLayer
         {
             try
             {
-                return _dbContext.Movies.Find(key); // Ако ключът е string (напр. Id)
+                return _dbContext.Viewers.Find(key); 
             }
             catch (Exception ex)
             {
@@ -41,38 +41,38 @@ namespace DataLayer
             }
         }
 
-        public IEnumerable<Movie> ReadAll()
+        public IEnumerable<Viewer> ReadAll()
         {
-            return _dbContext.Movies.ToList();
+            return _dbContext.Viewers.ToList();
         }
 
-        public void Update(Movie item)
+        public void Update(Viewer item)
         {
             try
             {
-                _dbContext.Movies.Update(item);
+                _dbContext.Viewers.Update(item);
                 _dbContext.SaveChanges();
             }
             catch (Exception ex)
             {
-                throw new Exception("Failed to update movie.", ex);
+                throw new Exception("Failed to update viewer.", ex);
             }
         }
 
-        public void Delete(string key)
+        public void Delete(int key)
         {
             try
             {
-                var movie = _dbContext.Movies.Find(key);
-                if (movie != null)
+                var viewer = _dbContext.Viewers.Find(key);
+                if (viewer != null)
                 {
-                    _dbContext.Movies.Remove(movie);
+                    _dbContext.Viewers.Remove(viewer);
                     _dbContext.SaveChanges();
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Failed to delete movie.", ex);
+                throw new Exception("Failed to delete viewer.", ex);
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,55 +8,55 @@ using BusinessLayer;
 
 namespace DataLayer
 {
-    public class ViewersManager : IDB<Viewer, int>
+    public class GenresManager : IDB<Genre, int>
     {
         private readonly CatalogforMoviesDBContext _dbContext;
 
-        public ViewersManager(CatalogforMoviesDBContext dbContext)
+        public GenresManager(CatalogforMoviesDBContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public void Create(Viewer item)
+        public void Create(Genre item)
         {
             try
             {
-                _dbContext.Viewers.Add(item);
+                _dbContext.Genres.Add(item);
                 _dbContext.SaveChanges();
             }
             catch (Exception ex)
             {
-                throw new Exception("Failed to create viewer.", ex);
+                throw new Exception("Failed to create genre.", ex);
             }
         }
 
-        public Viewer Read(int key)
+        public Genre Read(int key)
         {
             try
             {
-                return _dbContext.Viewers.Find(key); 
+                return _dbContext.Genres.Find(key); // Ако ключът е string (напр. Id)
             }
             catch (Exception ex)
             {
-                throw new Exception("Failed to read viewer.", ex);
+                throw new Exception("Failed to read genre.", ex);
             }
         }
 
-        public IEnumerable<Viewer> ReadAll()
+        public IEnumerable<Genre> ReadAll()
         {
-            return _dbContext.Viewers.ToList();
+            return _dbContext.Genres.ToList();
         }
 
-        public void Update(Viewer item)
+        public void Update(Genre item)
         {
             try
             {
-                _dbContext.Viewers.Update(item);
+                _dbContext.Genres.Update(item);
                 _dbContext.SaveChanges();
             }
             catch (Exception ex)
             {
-                throw new Exception("Failed to update viewer.", ex);
+                throw new Exception("Failed to update Genre.", ex);
             }
         }
 
@@ -63,16 +64,16 @@ namespace DataLayer
         {
             try
             {
-                var viewer = _dbContext.Viewers.Find(key);
-                if (viewer != null)
+                var genre = _dbContext.Genres.Find(key);
+                if (genre != null)
                 {
-                    _dbContext.Viewers.Remove(viewer);
+                    _dbContext.Genres.Remove(genre);
                     _dbContext.SaveChanges();
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Failed to delete viewer.", ex);
+                throw new Exception("Failed to delete genre.", ex);
             }
         }
     }

@@ -18,7 +18,7 @@ namespace DataLayer
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySQL("Server=127.0.0.1;Database=CatalogforMoviesDb;Uid=root;Pwd=root;");
+                optionsBuilder.UseMySQL("Server=127.0.0.1;Database=CatalogforMoviesDb;Uid=root;Pwd=didy2707#@#;");
             }
             base.OnConfiguring(optionsBuilder);
         }

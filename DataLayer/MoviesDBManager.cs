@@ -8,72 +8,72 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataLayer
 {
-    public class ViewersManager : IDB<Viewer, int>
+    public class MoviesDBManager : IDB<Movie, string>
     {
         private readonly CatalogforMoviesDBContext _dbContext;
 
-        public ViewersManager(CatalogforMoviesDBContext dbContext)
+        public MoviesDBManager(CatalogforMoviesDBContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public void Create(Viewer item)
+        public void Create(Movie item)
         {
             try
             {
-                _dbContext.Viewers.Add(item);
+                _dbContext.Movies.Add(item);
                 _dbContext.SaveChanges();
             }
             catch (Exception ex)
             {
-                throw new Exception("Failed to create viewer.", ex);
+                throw new Exception("Failed to create movie.", ex);
             }
         }
 
-        public Viewer Read(int key)
+        public Movie Read(string key)
         {
             try
             {
-                return _dbContext.Viewers.Find(key); 
+                return _dbContext.Movies.Find(key); // Ако ключът е string (напр. Id)
             }
             catch (Exception ex)
             {
-                throw new Exception("Failed to read viewer.", ex);
+                throw new Exception("Failed to read movie.", ex);
             }
         }
 
-        public IEnumerable<Viewer> ReadAll()
+        public IEnumerable<Movie> ReadAll()
         {
-            return _dbContext.Viewers.ToList();
+            return _dbContext.Movies.ToList();
         }
 
-        public void Update(Viewer item)
+        public void Update(Movie item)
         {
             try
             {
-                _dbContext.Viewers.Update(item);
+                _dbContext.Movies.Update(item);
                 _dbContext.SaveChanges();
             }
             catch (Exception ex)
             {
-                throw new Exception("Failed to update viewer.", ex);
+                throw new Exception("Failed to update movie.", ex);
             }
         }
 
-        public void Delete(int key)
+        public void Delete(string key)
         {
             try
             {
-                var viewer = _dbContext.Viewers.Find(key);
-                if (viewer != null)
+                var movie = _dbContext.Movies.Find(key);
+                if (movie != null)
                 {
-                    _dbContext.Viewers.Remove(viewer);
+                    _dbContext.Movies.Remove(movie);
                     _dbContext.SaveChanges();
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Failed to delete viewer.", ex);
+                throw new Exception("Failed to delete movie.", ex);
             }
         }
     }

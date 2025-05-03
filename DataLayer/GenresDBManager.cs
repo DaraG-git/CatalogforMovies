@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataLayer
 {
-    public class GenresManager : IDB<Genre, int>
+    public class GenresDBManager : IDB<Genre, int>
     {
         private readonly CatalogforMoviesDBContext _dbContext;
 
-        public GenresManager(CatalogforMoviesDBContext dbContext)
+        public GenresDBManager(CatalogforMoviesDBContext dbContext)
         {
             _dbContext = dbContext;
         }

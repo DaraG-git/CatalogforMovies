@@ -21,7 +21,7 @@ namespace BusinessLayer
         public string Phone { get; set; }
         public DateTime BirthDate { get; set; }
 
-        private Viewer() { }
+        public Viewer() { }
         public Viewer(string name, string email, string password, string phone, DateTime birthDate)
         {
             Name = name;

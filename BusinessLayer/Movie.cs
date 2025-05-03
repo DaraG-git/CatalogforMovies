@@ -3,7 +3,7 @@ using System.Reflection.Emit;
 
 namespace BusinessLayer
 {
-    public abstract class Movie
+    public class Movie
     {
         [Key]
         public string MovieAdress { get; set; }

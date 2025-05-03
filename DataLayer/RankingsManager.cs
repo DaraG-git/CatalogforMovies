@@ -1,20 +1,13 @@
-﻿using System;
+﻿using BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataLayer
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using BusinessLayer;
-
-    namespace DataLayer
-    {
         public class RankingsManager : IDB<Ranking, int>
         {
             private readonly CatalogforMoviesDBContext _dbContext;
@@ -84,8 +77,4 @@ namespace DataLayer
                 }
             }
         }
-    }
-
-
-
 }

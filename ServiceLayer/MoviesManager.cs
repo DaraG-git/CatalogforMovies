@@ -9,7 +9,7 @@ using BusinessLayer;
 namespace ServiceLayer
 {
     public static class MoviesManager
-    {
+    {/*
         public static void Create(Movie item)
         {
             try
@@ -69,6 +69,6 @@ namespace ServiceLayer
             {
                 throw ex;
             }
-        }
+        }*/
     }
 }

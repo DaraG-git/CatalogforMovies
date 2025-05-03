@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ServiceLayer
 {
     public static class ViewersManager
-    {
+    {/*
         public static void Create(Viewer item)
         {
             try
@@ -69,6 +69,6 @@ namespace ServiceLayer
             {
                 throw ex;
             }
-        }
+        }*/
     }
 }

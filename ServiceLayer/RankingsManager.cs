@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace ServiceLayer
 {
     public static class RankingsManager
-    {
+    {/*
         public static void Create(Ranking item)
         {
             try
@@ -70,6 +70,6 @@ namespace ServiceLayer
             {
                 throw ex;
             }
-        }
+        }*/
     }
 }

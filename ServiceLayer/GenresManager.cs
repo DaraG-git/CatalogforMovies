@@ -4,7 +4,7 @@ using System.Security.Cryptography.X509Certificates;
 namespace ServiceLayer
 {
     public static class GenresManager
-    {
+    {/*
         public static void Create(Genre item)
         {
             try
@@ -64,6 +64,6 @@ namespace ServiceLayer
             {
                 throw ex;
             }
-        }
+        }*/
     }
 }

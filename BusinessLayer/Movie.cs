@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Reflection.Emit;
+using System.Xml.Linq;
 
 namespace BusinessLayer
 {
@@ -16,6 +17,18 @@ namespace BusinessLayer
         public Genre Genre { get; set; }
         [Required]
         public int ReleaseYear { get; set; }
+        [Required]
         public decimal Review { get; set; }
+
+        private Movie() { }
+
+        public Movie(string title, string director, Genre genre, int releaseYear, decimal review)
+        {
+            Title = title;
+            Director = director;
+            Genre = genre;
+            ReleaseYear = releaseYear;
+            Review = review;
+        }
     }
 }

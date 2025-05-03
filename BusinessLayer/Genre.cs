@@ -14,5 +14,13 @@ namespace BusinessLayer
         [Required]
         public string Name { get; set; }
         public List<Movie> Movies { get; set; }
+
+        private Genre() { }
+
+        public Genre(string name)
+        {
+            Name = name;
+            Movies = new List<Movie>();
+        }
     }
 }

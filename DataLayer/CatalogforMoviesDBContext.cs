@@ -5,9 +5,22 @@ namespace DataLayer
 {
     public class CatalogforMoviesDBContext : DbContext
     {
+        public CatalogforMoviesDBContext() : base()
+        {
+
+        }
         public CatalogforMoviesDBContext(DbContextOptions<CatalogforMoviesDBContext> options) : base(options)
         {
             
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseMySQL("Server=127.0.0.1;Database=CatalogforMoviesDb;Uid=root;Pwd=root;");
+            }
+            base.OnConfiguring(optionsBuilder);
         }
 
         public DbSet<Movie> Movies { get; set; }

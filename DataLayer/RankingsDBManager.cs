@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataLayer
 {
-        public class RankingsManager : IDB<Ranking, int>
+        public class RankingsDBManager : IDB<Ranking, int>
         {
             private readonly CatalogforMoviesDBContext _dbContext;
 
-            public RankingsManager(CatalogforMoviesDBContext dbContext)
+            public RankingsDBManager(CatalogforMoviesDBContext dbContext)
             {
                 _dbContext = dbContext;
             }

@@ -47,10 +47,12 @@ namespace PresentationLayer
         {
             try
             {
+                var genre = (Genre)cbGenre.SelectedItem;
                 var newMovie = new Movie(
                     txtTitle.Text,
                     txtDirector.Text,
-                    (Genre)cbGenre.SelectedItem,
+                    genre.Id,
+                    null,
                     dtpReleaseDate.Value.Year,
                     decimal.Parse(txtReview.Text)
                 );

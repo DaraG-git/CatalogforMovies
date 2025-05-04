@@ -21,6 +21,8 @@ namespace BusinessLayer
         public string Phone { get; set; }
         public DateTime BirthDate { get; set; }
 
+       // public Dictionary<Movie, Ranking> Ranking { get; set; } = new Dictionary<Movie, Ranking>();
+
         public Viewer() { }
         public Viewer(string name, string email, string password, string phone, DateTime birthDate)
         {
@@ -29,6 +31,7 @@ namespace BusinessLayer
             Password = password;
             Phone = phone;
             BirthDate = birthDate;
+            //Ranking = ranking;
         }
     }
 }

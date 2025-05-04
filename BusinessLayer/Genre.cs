@@ -13,14 +13,14 @@ namespace BusinessLayer
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        public List<Movie> Movies { get; set; }
+        //public List<Movie> Movies { get; set; }
 
         public Genre() { }
 
         public Genre(string name)
         {
             Name = name;
-            Movies = new List<Movie>();
+            //Movies = new List<Movie>();
         }
     }
 }

@@ -81,5 +81,9 @@ namespace PresentationLayer
             dataGridView1.DataSource = ViewersManager.ReadAll().ToList();
         }
 
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

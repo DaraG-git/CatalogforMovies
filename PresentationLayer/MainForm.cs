@@ -35,10 +35,9 @@ namespace PresentationLayer
             viewersForm.ShowDialog();
         }
 
-        private void btnRankings_Click(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
-            var rankingsForm = new RankingsForm();
-            rankingsForm.ShowDialog();
+
         }
     }
 }

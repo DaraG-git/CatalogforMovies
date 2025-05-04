@@ -79,5 +79,17 @@ namespace TestingLayer
             var deleted = _manager.Read(viewer.ID);
             Assert.IsNull(deleted);
         }
+
+        [Test]
+        public void Create_ShouldThrowExceptionForDuplicateEmail()
+        {
+            var viewer1 = new Viewer("Emma", "emma@example.com", "password123", "555-555-5555", new DateTime(1992, 6, 25));
+            _manager.Create(viewer1);
+
+            // Try creating a viewer with the same email
+            var viewer2 = new Viewer("Ella", "emma@example.com", "password456", "666-666-6666", new DateTime(1994, 8, 17));
+
+            Assert.Throws<Exception>(() => _manager.Create(viewer2), "A viewer with the same email already exists.");
+        }
     }
 }

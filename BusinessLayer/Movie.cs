@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection.Emit;
 using System.Xml.Linq;
 
@@ -14,6 +15,10 @@ namespace BusinessLayer
         [Required]
         public string Director { get; set; }
         [Required]
+
+        [ForeignKey("Genre")]
+        public int GenreId { get; set; }
+        
         public Genre Genre { get; set; }
         [Required]
         public int ReleaseYear { get; set; }
@@ -22,10 +27,11 @@ namespace BusinessLayer
 
         private Movie() { }
 
-        public Movie(string title, string director, Genre genre, int releaseYear, decimal review)
+        public Movie(string title, string director, int genreId, Genre genre, int releaseYear, decimal review)
         {
             Title = title;
             Director = director;
+            GenreId = genreId;
             Genre = genre;
             ReleaseYear = releaseYear;
             Review = review;

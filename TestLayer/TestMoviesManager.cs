@@ -35,13 +35,14 @@ namespace TestingLayer
         [TearDown]
         public void Cleanup()
         {
+            _context.Database.EnsureDeleted();
             _context.Dispose();
         }
 
         [Test]
         public void Create_ShouldAddMovie()
         {
-            var movie = new Movie("Inception", "Christopher Nolan", _testGenre, 2010, 8.8m)
+            var movie = new Movie("Inception", "Christopher Nolan", _testGenre.Id, _testGenre, 2010, 8.8m)
             {
                 MovieAdress = "M1"
             };
@@ -55,8 +56,8 @@ namespace TestingLayer
         [Test]
         public void ReadAll_ShouldReturnAllMovies()
         {
-            _manager.Create(new Movie("Interstellar", "Christopher Nolan", _testGenre, 2014, 9.0m) { MovieAdress = "M2" });
-            _manager.Create(new Movie("Tenet", "Christopher Nolan", _testGenre, 2020, 7.5m) { MovieAdress = "M3" });
+            _manager.Create(new Movie("Interstellar", "Christopher Nolan", _testGenre.Id, _testGenre, 2014, 9.0m) { MovieAdress = "M2" });
+            _manager.Create(new Movie("Tenet", "Christopher Nolan", _testGenre.Id, _testGenre, 2020, 7.5m) { MovieAdress = "M3" });
 
             var movies = _manager.ReadAll().ToList();
 
@@ -66,7 +67,7 @@ namespace TestingLayer
         [Test]
         public void Update_ShouldModifyMovie()
         {
-            var movie = new Movie("The Matrix", "Wachowskis", _testGenre, 1999, 8.7m) { MovieAdress = "M4" };
+            var movie = new Movie("The Matrix", "Wachowskis", _testGenre.Id, _testGenre, 1999, 8.7m) { MovieAdress = "M4" };
             _manager.Create(movie);
 
             movie.Title = "The Matrix Reloaded";
@@ -79,7 +80,7 @@ namespace TestingLayer
         [Test]
         public void Delete_ShouldRemoveMovie()
         {
-            var movie = new Movie("Avatar", "James Cameron", _testGenre, 2009, 7.9m) { MovieAdress = "M5" };
+            var movie = new Movie("Avatar", "James Cameron", _testGenre.Id, _testGenre, 2009, 7.9m) { MovieAdress = "M5" };
             _manager.Create(movie);
 
             _manager.Delete("M5");
